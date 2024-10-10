@@ -1,0 +1,30 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI #액션파일 이름
+
+on: #on: 이벤트가 발생하면 특정 행위를 해라 ex. push라는 이벤트가 발생하면 특정 행동을 해라ation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI #액션파일 이름
+
+on: #on: 이벤트가 발생하면 특정 행위를 해라 ex. push라는 이벤트가 발생하면 특정 행동을 해라
+  push:
+    branches: [ "master" ] #master 브랜치에 push 이벤트가 발생하면 job을 실행해라
+  pull_request:
+    branches: [ "master" ]
+
+jobs: #특정 행위들
+  build: 
+
+    runs-on: ubuntu-latest #우분투 운영체제에서 실행하도록
+
+    steps: #스탭이 존재
+    - uses: actions/checkout@v4 #uses: 액션 실행/checkout: 리포지토리에서 우리가 올려놓은 것들을 꺼내와라
+    - name: Use Node.js 18.x 
+      uses: actions/setup-node@v4 #setup-node: node.js를 환경을 설정하는 것 //uses는 marketplace에서 확인 가능
+      with:
+        node-version: 18.x
+        cache: 'npm'
+    - run: npm ci
+    - run: npm test
