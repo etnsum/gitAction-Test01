@@ -3,10 +3,6 @@
 
 name: Node.js CI #액션파일 이름
 
-on: #on: 이벤트가 발생하면 특정 행위를 해라 ex. push라는 이벤트가 발생하면 특정 행동을 해라ation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI #액션파일 이름
 
 on: #on: 이벤트가 발생하면 특정 행위를 해라 ex. push라는 이벤트가 발생하면 특정 행동을 해라
   push:
